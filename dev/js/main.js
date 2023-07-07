@@ -11,7 +11,7 @@ $(document).ready(function () {
     if (desktop.matches) {
       $('.reserve').toggleClass('open');
 
-      $('.reserve__test, .reserve__orders-sum').slideToggle({
+      $('.reserve__footer, .reserve__orders-sum').slideToggle({
         start: function () {
           $(this).css({
             display: lg.matches ? "flex" : "block"

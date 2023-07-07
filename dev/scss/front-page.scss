@@ -44,6 +44,7 @@
   &__menu {
 
     @include minw($sm-pc) {
+      min-height: 66rem;
       width: 26%;
       background: $pale-gray;
     }
@@ -105,7 +106,7 @@
       "info info"
       "success success"
       "schedule schedule"
-      "test test"
+      "footer footer"
     ;
     // grid-template-rows: auto auto;
     grid-template-columns: 81% 19%;
@@ -115,7 +116,7 @@
       grid-template-areas:
         "details schedule bttn"
         "info info ."
-        "test test test"
+        "footer footer footer"
       ;
       grid-template-columns: 40% 41% 19%;
     }
@@ -235,8 +236,8 @@
     background-image: url(/build/images/icons/info2.svg);
   }
 
-  &__test {
-    grid-area: test;
+  &__footer {
+    grid-area: footer;
 
     @include minw($sm-pc) {
       position: relative;

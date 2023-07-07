@@ -1,0 +1,650 @@
+@import './utils/mixin.scss';
+@import './utils/vars.scss';
+
+.to-menu {
+  margin-top: 1.2rem;
+  padding: 0 1.6rem;
+  width: 100%;
+
+  &__bttn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 0.8rem;
+
+    & svg {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+
+    & span {
+      padding: 0 0.8rem;
+      color: $gray-secondary;
+      border-radius: 4px;
+      background: $gray;
+    }
+  }
+
+  @include minw($sm-pc) {
+    display: none !important;
+  }
+}
+
+.reserve {
+
+  .container {
+    padding: 0;
+
+    @include minw($sm-pc) {
+      display: flex;
+      gap: 0 2rem;
+    }
+  }
+
+  &__menu {
+
+    @include minw($sm-pc) {
+      width: 26%;
+      background: $pale-gray;
+    }
+  }
+
+  &__content {
+    padding-bottom: 2.4rem;
+
+    @include minw($sm-pc) {
+      width: calc(74% - 4rem);
+    }
+
+    @include minw($lg) {
+      padding-bottom: 3.2rem;
+      width: calc(74% - 10rem);
+    }
+  }
+
+  &__title {
+    margin: 1.6rem 0 2.4rem;
+    padding: 0 1.6rem;
+
+    @include minw($sm-pc) {
+      margin: 3.2rem 0 2.4rem;
+      padding: 0;
+      padding-bottom: 2.5rem;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0.1rem;
+        background: #D9D9D9;
+      }
+    }
+  }
+
+  &__list {
+    padding: 1.6rem;
+    background: $green-pale;
+    border-radius: 8px;
+    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.20);
+    transition: padding 0.5s linear;
+
+    @include minw($sm-pc) {
+      padding-bottom: 0.1rem;
+      border: 1px solid $green-lime;
+      overflow: hidden;
+    }
+  }
+
+  &__list-item {
+    display: grid;
+    grid-template-areas:
+      "details bttn"
+      "info info"
+      "success success"
+      "schedule schedule"
+      "test test"
+    ;
+    // grid-template-rows: auto auto;
+    grid-template-columns: 81% 19%;
+    row-gap: 1rem;
+
+    @include minw($sm-pc) {
+      grid-template-areas:
+        "details schedule bttn"
+        "info info ."
+        "test test test"
+      ;
+      grid-template-columns: 40% 41% 19%;
+    }
+
+    @include minw($lg) {
+      grid-template-columns: 31% 53% 16%;
+    }
+  }
+
+  &__details {
+    grid-area: details;
+  }
+
+  &__details-head {
+    display: flex;
+    gap: 0 0.8rem;
+  }
+
+  &__details-state {
+    padding: 0 0.8rem;
+    height: 2.4rem;
+    display: inline-block;
+    border-radius: 4px;
+    border: 1px solid $green-secondary;
+    background: #FFF;
+    color: $green-secondary;
+  }
+
+  &__details-date {}
+
+  &__details-orders {
+    margin-top: 1rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+
+  &__toggle-container {
+    grid-area: bttn;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    @include minw($sm-pc) {
+      margin-left: 1rem;
+      gap: 0 1.6rem;
+    }
+  }
+
+  &__toggle-info {
+    display: none;
+
+    @include minw($sm-pc) {
+      display: block;
+    }
+  }
+
+  &__toggle-orders {
+    padding: 0.8rem;
+    display: block;
+    border-radius: 8px;
+    background: $green-lime;
+
+    & svg {
+      display: block;
+
+      @include minw($sm-pc) {
+        transform: rotate(90deg);
+        transition: transform 0.5s linear;
+      }
+    }
+  }
+
+
+
+  &__info {
+    grid-area: info;
+    width: fit-content;
+
+    @include minw($sm-pc) {
+      padding: 1.2rem 1.6rem;
+    }
+
+    &__icon {}
+
+    &__text {}
+  }
+
+  &__success {
+    grid-area: success;
+    font-weight: 600;
+    color: $green-secondary;
+
+    @include minw($sm-pc) {
+      display: none;
+    }
+  }
+
+  &__schedule {
+    grid-area: schedule;
+
+    @include minw($sm-pc) {
+      margin-left: 1rem;
+      padding-top: 0;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__schedule-icon {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    vertical-align: middle;
+    transform: translate(0, -2px);
+    background-image: url(/build/images/icons/info2.svg);
+  }
+
+  &__test {
+    grid-area: test;
+
+    @include minw($sm-pc) {
+      position: relative;
+      left: -1.6rem;
+      width: calc(100% + 3.2rem);
+      display: none;
+    }
+
+    @include minw($lg) {
+      // display: flex;
+      align-items: flex-start;
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__orders-container {
+    grid-area: orders;
+
+    @include minw($sm-pc) {
+      padding-top: 0.8rem;
+    }
+
+    @include minw($lg) {
+      width: 57%;
+      border-right: 0.1rem solid $green-lime;
+    }
+  }
+
+  &__orders {}
+
+  &__orders-item {
+    display: flex;
+    flex-direction: column;
+
+    &:not(:first-of-type) {
+      margin-top: 1rem;
+
+      @include minw($sm-pc) {
+        margin-top: 0.8rem;
+      }
+    }
+  }
+
+  &__orders-title {
+    font-size: 1.6rem;
+    position: relative;
+    z-index: 5;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -1.6rem;
+      top: -0.8rem;
+      width: calc(100% + 3.2rem);
+      height: calc(100% + 1.6rem);
+      background: $green-lime;
+      opacity: 0;
+      transition: opacity 0.5s linear;
+      z-index: -1;
+
+      @include minw($sm-pc) {
+        left: 0;
+        width: 100%;
+        opacity: 1;
+      }
+    }
+
+    @include minw($sm-pc) {
+      padding: 0 1.6rem;
+    }
+  }
+
+  &__orders-text {
+    position: relative;
+    margin-top: 1rem;
+    padding-left: 2.3rem;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      width: 0.3rem;
+      height: 0.3rem;
+      border-radius: 50%;
+      background: $black;
+      transform: translate(0, -50%);
+    }
+
+    @include minw($sm-pc) {
+      display: none;
+    }
+  }
+
+  &__orders-details {
+    margin-top: 0.8rem;
+    position: relative;
+    left: -1.6rem;
+    width: calc(100% + 3.2rem);
+    padding: 1.6rem;
+    display: flex;
+    gap: 0 0.9rem;
+    align-items: center;
+    background: #FFFFFF;
+    display: none;
+
+    @include minw($sm-pc) {
+
+      display: flex;
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  &__orders-img {
+    width: 6.8rem;
+    height: 6.8rem;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__orders-content {
+    flex-grow: 1;
+
+    h6 {
+      max-width: 22.5rem;
+      color: $black;
+      font-weight: 600;
+      line-height: 2.4rem;
+      font-size: 1.4rem;
+    }
+
+    &>p {
+      color: $gray-secondary;
+    }
+  }
+
+  &__orders-receipt {
+    margin: 0.8rem 0;
+    padding: 0.4rem 0.6rem;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 0 0.4rem;
+    border-radius: 100px;
+    background: $pale-gray;
+
+    & svg {
+      width: 1.2rem;
+      height: 1.6rem;
+    }
+
+    & span {
+      color: #757575;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+
+  &__orders-amount {
+    display: flex;
+    justify-content: space-between;
+
+    & span {
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+  }
+
+
+  &__created {
+    position: relative;
+    left: -1.6rem;
+    width: calc(100% + 3.2rem);
+    z-index: 5;
+    padding: 2.4rem 2rem;
+    display: flex;
+    gap: 0 1.6rem;
+    flex-wrap: wrap;
+    background: #FFF;
+    display: none;
+
+    @include minw($sm-pc) {
+      left: 0;
+      width: auto;
+      display: flex;
+    }
+
+    @include minw($lg) {
+      height: 100%;
+      align-content: flex-start;
+    }
+
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   left: -1.6rem;
+    //   top: 0;
+    //   width: calc(100% + 3.2rem);
+    //   height: 100%;
+    //   background: #FFF;
+    //   z-index: -1;
+    // }
+
+  }
+
+  &__process {
+    height: 17rem;
+    width: 2.4rem;
+    position: relative;
+
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      border-left: 1px dotted red;
+      width: 0.1rem;
+      height: 100%;
+    }
+
+    &-dote {
+
+      &:nth-of-type(1) {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 1.6rem;
+        height: 1.6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 3px solid $green-secondary;
+        border-radius: 50%;
+        background: #FFF;
+
+        & span {
+          border: 3px solid $green-secondary;
+          border-radius: 50%;
+        }
+      }
+
+      &:not(:first-of-type) {
+        position: absolute;
+        left: 0.6rem;
+        width: 31rem;
+        height: 2.4rem;
+        display: flex;
+        gap: 0 2rem;
+        align-items: center;
+
+        & span {
+          display: block;
+          width: 1.2rem;
+          height: 1.2rem;
+          border: 2px solid $green-secondary;
+          border-radius: 50%;
+          background: #FFF;
+        }
+
+        & p {
+          color: $gray-secondary;
+          font-size: 1.6rem;
+          font-weight: 600;
+        }
+      }
+
+      &:nth-of-type(2) {
+        bottom: 1.6rem;
+      }
+
+      &:nth-of-type(3) {
+        bottom: -0.8rem;
+      }
+
+
+    }
+  }
+
+  &__created-content {
+    // height: 17rem;
+    width: calc(100% - 4rem);
+
+
+    .info {
+      margin-top: 1.6rem;
+      max-width: 19.2rem;
+
+      &__text {}
+    }
+  }
+
+  &__cancel {
+    display: flex;
+    gap: 0 2rem;
+    align-items: center;
+
+    &-container {
+      margin-top: 3rem;
+      width: 100%;
+    }
+
+    & span {
+      font-style: 1.6rem;
+      color: #FF6262;
+    }
+
+    & svg {
+      width: 2.4rem;
+      height: 2.4rem;
+      flex-shrink: 0;
+    }
+  }
+
+  &__orders-sum {
+    position: relative;
+    left: -1.6rem;
+    width: calc(100% + 3.1rem);
+    padding: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    background: #FFFFFF;
+    border-top: 1px solid $green-lime;
+    font-size: 18px;
+    font-weight: 600;
+    display: none;
+
+    @include minw($sm-pc) {
+      left: 0;
+      width: 100%;
+    }
+  }
+}
+
+
+.info {
+  padding: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0 0.4rem;
+  background: #FEFACF;
+  border-radius: 8px;
+
+  @include minw($sm-pc) {
+    padding: 0.8rem 1.6rem;
+  }
+
+  &__icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    background-image: url(/build/images/icons/info.svg);
+    flex-shrink: 0;
+  }
+
+  &__text {}
+}
+
+.reserve.open {
+
+  & .reserve {
+
+    &__list {
+
+      @include maxw(1023px) {
+        box-shadow: none;
+        padding-bottom: 0;
+      }
+    }
+
+    &__toggle-orders {
+
+      & svg {
+
+        @include minw($sm-pc) {
+          transform: rotate(270deg);
+        }
+
+      }
+    }
+
+    &__orders-container {
+      padding-top: 0.8rem;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    &__orders-item {
+
+      &:not(:first-of-type) {
+        margin-top: 0.8rem;
+      }
+    }
+
+    &__orders-title {
+
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+}

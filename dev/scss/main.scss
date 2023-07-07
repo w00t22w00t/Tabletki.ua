@@ -1,0 +1,120 @@
+@import './utils/fonts.scss';
+@import './utils/mixin.scss';
+@import './utils/vars.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  background: #FFF;
+}
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: $black;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+
+  &:visited {
+    color: inherit;
+  }
+}
+
+button {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	outline: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.container {
+  padding: 0 1.5rem;
+  max-width: 144rem;
+}
+
+.header {
+  width: 100%;
+  height: 5.6rem;
+  background: $green;
+  position: relative;
+
+  &__return-reserve {
+    height: 100%;
+    display: none;
+    
+    & > .container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    & button {
+      display: flex;
+      align-items: center;
+      gap: 0 0.8rem;
+
+      & svg {}
+
+      & span {
+        color: #FFF;
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+
+.footer {
+  // margin-top: 2.4rem;
+  height: 107.2rem;
+  background: $pale-gray;
+  
+  @include minw($sm-pc) {
+    height: 70rem;
+  }
+}
+
+.top-rectangle {
+  padding-top: 1.1rem;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1rem;
+    background: $green-lime;
+  }
+}
+

@@ -53,7 +53,13 @@
   &__content {
     padding-bottom: 2.4rem;
 
+    @include minw($sm-tablet) {
+      margin: 0 auto;
+      width: calc(100% - 4rem);
+    }
+
     @include minw($sm-pc) {
+      margin: 0;
       width: calc(74% - 4rem);
     }
 
@@ -90,9 +96,8 @@
     background: $green-pale;
     border-radius: 8px;
     box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.20);
-    transition: padding 0.5s linear;
 
-    @include minw($sm-pc) {
+    @include minw($sm-tablet) {
       padding-bottom: 0.1rem;
       border: 1px solid $green-lime;
       overflow: hidden;
@@ -112,10 +117,10 @@
     grid-template-columns: 81% 19%;
     row-gap: 1rem;
 
-    @include minw($sm-pc) {
+    @include minw($tablet) {
       grid-template-areas:
         "details schedule bttn"
-        "info info ."
+        "info info info"
         "footer footer footer"
       ;
       grid-template-columns: 40% 41% 19%;
@@ -159,7 +164,7 @@
     justify-content: flex-end;
     align-items: flex-start;
 
-    @include minw($sm-pc) {
+    @include minw($tablet) {
       margin-left: 1rem;
       gap: 0 1.6rem;
     }
@@ -168,7 +173,7 @@
   &__toggle-info {
     display: none;
 
-    @include minw($sm-pc) {
+    @include minw($pc) {
       display: block;
     }
   }
@@ -182,9 +187,9 @@
     & svg {
       display: block;
 
-      @include minw($sm-pc) {
+      @include minw($sm-tablet) {
         transform: rotate(90deg);
-        transition: transform 0.5s linear;
+        // transition: transform 0.5s linear;
       }
     }
   }
@@ -195,7 +200,7 @@
     grid-area: info;
     width: fit-content;
 
-    @include minw($sm-pc) {
+    @include minw($tablet) {
       padding: 1.2rem 1.6rem;
     }
 
@@ -209,7 +214,7 @@
     font-weight: 600;
     color: $green-secondary;
 
-    @include minw($sm-pc) {
+    @include minw($tablet) {
       display: none;
     }
   }
@@ -217,7 +222,7 @@
   &__schedule {
     grid-area: schedule;
 
-    @include minw($sm-pc) {
+    @include minw($tablet) {
       margin-left: 1rem;
       padding-top: 0;
 
@@ -233,36 +238,42 @@
     height: 2.4rem;
     vertical-align: middle;
     transform: translate(0, -2px);
-    background-image: url(/build/images/icons/info2.svg);
+    background-image: url(../images/icons/info2.svg);
   }
 
   &__footer {
     grid-area: footer;
 
-    @include minw($sm-pc) {
+    @include minw($tablet) {
       position: relative;
       left: -1.6rem;
       width: calc(100% + 3.2rem);
       display: none;
-    }
 
-    @include minw($lg) {
-      // display: flex;
       align-items: flex-start;
       flex-direction: row-reverse;
     }
+
+    // @include minw($lg) {
+    //   // display: flex;
+    //   align-items: flex-start;
+    //   flex-direction: row-reverse;
+    // }
   }
 
   &__orders-container {
     grid-area: orders;
 
-    @include minw($sm-pc) {
+    @include minw($tablet) {
       padding-top: 0.8rem;
+
+      width: 52%;
+      flex-shrink: 0;
+      border-right: 0.1rem solid $green-lime;
     }
 
-    @include minw($lg) {
+    @include minw($pc) {
       width: 57%;
-      border-right: 0.1rem solid $green-lime;
     }
   }
 
@@ -275,7 +286,7 @@
     &:not(:first-of-type) {
       margin-top: 1rem;
 
-      @include minw($sm-pc) {
+      @include minw($tablet) {
         margin-top: 0.8rem;
       }
     }
@@ -295,17 +306,16 @@
       height: calc(100% + 1.6rem);
       background: $green-lime;
       opacity: 0;
-      transition: opacity 0.5s linear;
       z-index: -1;
 
-      @include minw($sm-pc) {
+      @include minw($tablet) {
         left: 0;
         width: 100%;
         opacity: 1;
       }
     }
 
-    @include minw($sm-pc) {
+    @include minw($tablet) {
       padding: 0 1.6rem;
     }
   }
@@ -327,7 +337,7 @@
       transform: translate(0, -50%);
     }
 
-    @include minw($sm-pc) {
+    @include minw($tablet) {
       display: none;
     }
   }
@@ -344,7 +354,7 @@
     background: #FFFFFF;
     display: none;
 
-    @include minw($sm-pc) {
+    @include minw($tablet) {
 
       display: flex;
       left: 0;
@@ -425,27 +435,14 @@
     background: #FFF;
     display: none;
 
-    @include minw($sm-pc) {
+    @include minw($tablet) {
       left: 0;
       width: auto;
       display: flex;
-    }
 
-    @include minw($lg) {
       height: 100%;
       align-content: flex-start;
     }
-
-    // &::before {
-    //   content: '';
-    //   position: absolute;
-    //   left: -1.6rem;
-    //   top: 0;
-    //   width: calc(100% + 3.2rem);
-    //   height: 100%;
-    //   background: #FFF;
-    //   z-index: -1;
-    // }
 
   }
 
@@ -573,7 +570,7 @@
     font-weight: 600;
     display: none;
 
-    @include minw($sm-pc) {
+    @include minw($tablet) {
       left: 0;
       width: 100%;
     }
@@ -589,41 +586,69 @@
   background: #FEFACF;
   border-radius: 8px;
 
-  @include minw($sm-pc) {
+  @include minw($tablet) {
     padding: 0.8rem 1.6rem;
   }
 
   &__icon {
     width: 2.4rem;
     height: 2.4rem;
-    background-image: url(/build/images/icons/info.svg);
+    background-image: url(../images/icons/info.svg);
     flex-shrink: 0;
   }
 
   &__text {}
 }
 
-.reserve.open {
+body.open {
+
+  .header__return-reserve {
+
+    @include maxw(767px) {
+      display: block;
+    }
+  }
 
   & .reserve {
+    &__title,
+    .to-menu {
+      
+      @include maxw(767px) {
+        display: none;
+      }
+    }
 
     &__list {
 
-      @include maxw(1023px) {
+      @include maxw(767px) {
         box-shadow: none;
         padding-bottom: 0;
       }
     }
 
     &__toggle-orders {
+      @include maxw(767px) {
+        display: none;
+      }
 
       & svg {
 
-        @include minw($sm-pc) {
+        @include minw($sm-tablet) {
           transform: rotate(270deg);
         }
 
       }
+    }
+
+    &__footer {
+
+      @include minw($tablet) {
+        display: flex;
+      }
+    }
+
+    &__created {
+      display: flex;
     }
 
     &__orders-container {
@@ -646,6 +671,18 @@
       &::before {
         opacity: 1;
       }
+    }
+
+    &__orders-details {
+      display: flex;
+    }
+
+    &__orders-text {
+      display: none;
+    }
+
+    &__orders-sum {
+      display: flex;
     }
   }
 }
